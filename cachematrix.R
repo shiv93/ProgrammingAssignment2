@@ -23,13 +23,16 @@ makeCacheMatrix <- function(x = matrix()) {
     inverse<<-NULL
   }
   setinverse<-function(i){
+  
     inverse<<-i
     
   }
   getinverse<-function(){
+    #retrieve the inverse value of the matrix
     inverse
   }
   get<-function(){
+    #retrieve the entire matrix
     x
   }
   
@@ -44,11 +47,13 @@ cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
   value<-x$getInverse()
   if(!(is.null(value))){
+    #checking whether inverse is null or not, if not null return the inverse value
     message ("Displaying cached value...")
     return(value)
     
   }
   else {
+    #if inverse was null then calculating inverse and returning that after setting the value in setinverse() function
     matrix1<-x$get()
     if(nrow(matrix1)==ncol(matrix1)){
       inv<-solve(matrix1)
